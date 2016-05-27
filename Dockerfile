@@ -1,7 +1,7 @@
 FROM php:5.6-apache
-RUN apt-get update && apt-get install -y  vim git dnsutils \
-		&& apt-get install -y libc-client2007e libenchant1c2a libfreetype6 libicu52 libjpeg62-turbo libmcrypt4 libmemcachedutil2 libpng12-0 libpq5 libsybdb5 libtidy-0.99-0 libx11-6 libxpm4 libxslt1.1 snmp --no-install-recommends \
-		$$ apt-get install -y freetds-dev \
+RUN apt-get update && apt-get install -y  vim git dnsutils 
+RUN apt-get install -y libc-client2007e libenchant1c2a libfreetype6 libicu52 libjpeg62-turbo libmcrypt4 libmemcachedutil2 libpng12-0 libpq5 libsybdb5 libtidy-0.99-0 libx11-6 libxpm4 libxslt1.1 snmp --no-install-recommends 
+RUN apt-get install -y freetds-dev \
         libbz2-dev \
         libc-client-dev \
         libenchant-dev \
