@@ -23,8 +23,10 @@ RUN apt-get update && apt-get install -y  vim git dnsutils \
         libxml2-dev \
         libxpm-dev \
         libxslt1-dev \
-        zlib1g-dev	
+        zlib1g-dev
+		
 ENV XDEBUG_VERSION 2.3.3	
+
 RUN cd /usr/src/php/ext/ \
     && curl -L http://xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz | tar -zxf - \
     && mv xdebug-$XDEBUG_VERSION xdebug \
@@ -39,7 +41,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
     && docker-php-ext-configure ldap --with-ldap-sasl \
 	&& docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
 	&& docker-php-ext-configure mysqli --with-mysqli=mysqlnd \
-	&& docker-php-ext-install bcmath bz2 calendar dba enchant exif ftp gd gettext gmp imap intl ldap mbstring mcrypt mssql mysql mysqli opcache pcntl pdo pdo_dblib pdo_mysql pdo_pgsql pgsql pspell shmop snmp soap sockets sysvmsg sysvsem sysvshm tidy wddx xmlrpc xsl zip xdebug \
+	&& docker-php-ext-install iconv bcmath bz2 calendar dba enchant exif ftp gd gettext gmp imap intl ldap mbstring mcrypt mssql mysql mysqli opcache pcntl pdo pdo_dblib pdo_mysql pdo_pgsql pgsql pspell shmop snmp soap sockets sysvmsg sysvsem sysvshm tidy wddx xmlrpc xsl zip xdebug \
     && pecl install redis && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
 	
 ADD composer.phar /usr/local/bin/composer
